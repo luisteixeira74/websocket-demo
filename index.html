@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Clock</title>
+</head>
+<body>
+  <h1>Relógio WebSocket</h1>
+  <p id="clock">Aguardando...</p>
+
+  <script>
+    const socket = new WebSocket("ws://localhost:8080/ws");
+
+    socket.onmessage = function(event) {
+      document.getElementById("clock").innerText = event.data;
+    };
+  </script>
+</body>
+</html>
